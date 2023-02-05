@@ -1,10 +1,11 @@
-import { BrowserRouter, createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Favorites } from "./pages/favorites/favorites.page";
 import { Home } from "./pages/home/home.page";
 import { Search } from "./pages/search/search.page";
 import { paths } from "./utils/route.utils";
 import { Error } from "./pages/error/error.page";
 import { Navigation } from "./pages/navigation/navigation.page";
+import { GlobalStyle } from "./App.styles";
 
 const routes = [
   {
@@ -32,7 +33,13 @@ const App = () => {
     }
   ]);
 
-  return <RouterProvider router={router} />
+  return (
+    <>
+      <GlobalStyle />
+      <RouterProvider router={router} />
+    </>
+    
+  )
 }
 
 export default App;
