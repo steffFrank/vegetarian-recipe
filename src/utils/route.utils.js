@@ -4,3 +4,14 @@ export const paths = {
     favorites: "favorites",
     search: "search"
 }
+
+export const links = [
+    {
+        path: paths.search, 
+        name: "search"
+    },
+    {
+        path: paths.favorites,
+        name: "favorites"
+    }
+]
