@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { ButtonBase } from "../../components/reusable/reusable.styles";
+import { ReactComponent as CoverImg } from "../../assets/images/bg-image.svg";
 
 export const MainStyle = styled.main`
     max-width: 600px;
@@ -10,22 +13,22 @@ export const MainStyle = styled.main`
     display: flex;
     flex-direction: column;
     gap: 20px;
-    z-index: -10;
-    
-    a {
-        color: var(--primary-color);
-        border: 1px solid var(--primary-color);
-        border-radius: 5px;
-        background-color: var(--green-clr);
-        padding: 5px 10px;
-        text-align: center;
-        align-self: center;
-        &:hover {
-            filter: brightness(150%);
-        }
-    }
-`
+`;
 
-export const TextStyle = styled.p`
-    color: whitesmoke;
+export const StyledCoverImg = styled(CoverImg)`
+    display: block;
+    width: min(95vw, 600px);
+    height: auto;
+    margin: auto;
 `
+export const TextStyle = styled.p`
+    color: #fff;
+    span {
+        color: var(--secondary-color);
+        filter: brightness(120%);
+        font-weight: bold;
+    }
+`;
+export const StyledLink = styled(Link)`
+    ${ButtonBase}
+`;

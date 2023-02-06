@@ -1,10 +1,12 @@
-import { MainStyle, TextStyle } from "./home.styles"
-import { Link } from "react-router-dom";
+import { MainStyle, StyledCoverImg, TextStyle } from "./home.styles";
+import { StyledLink } from "./home.styles";
 
 export const Home = () => {
     return (
+        <>
+        <StyledCoverImg />
         <MainStyle>
-            <TextStyle>Welcome to <span>Green Eats</span>, your go-to source for delicious and   nutritious vegetarian recipes! We're passionate about plant-based cooking and the many benefits that come with it, from improved health to a reduced environmental footprint.
+            <TextStyle>Welcome to <span>Green Eats</span>, your go-to source for delicious and   nutritious <span>vegetarian recipes</span>! We're passionate about plant-based cooking and the many benefits that come with it, from improved health to a reduced environmental footprint.
             </TextStyle>
             <TextStyle>
             Whether you're a seasoned vegetarian or just starting to explore meat-free options, we've got you covered with a wide variety of recipes to suit any taste and dietary need. From hearty mains to sweet treats, you'll find something for every meal of the day.
@@ -15,7 +17,10 @@ export const Home = () => {
             <TextStyle>
             So go and find your new favorite dish, and let us know what you think! We can't wait to share our love of plant-based cooking with you.
             </TextStyle>
-            <Link to="search">Find your first recipe</Link>
+            <StyledLink to="search">Find your first recipe</StyledLink>
         </MainStyle>
+
+        </>
+        
     )
 }

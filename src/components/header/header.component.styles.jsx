@@ -12,7 +12,6 @@ export const HeaderStyle = styled.header`
 export const NavStyle = styled.nav`
     ul {
         display: flex;
-        justify-content: space-evenly;
         gap: 15px;
         a {
             color: var(--green-clr-light);

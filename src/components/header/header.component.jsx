@@ -1,5 +1,5 @@
 import { NavLink, Link } from "react-router-dom";
-import { ReactComponent as Logo } from "../../logo.svg";
+import { ReactComponent as Logo } from "../../assets/images/logo.svg";
 import { links } from "../../utils/route.utils";
 import { HeaderStyle, NavStyle } from "./header.component.styles";
 

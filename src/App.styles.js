@@ -15,10 +15,14 @@ export const GlobalStyle = createGlobalStyle`
    }
 
    h1, h2, h3, h4 {
-    font-family: 'Playfair Display'
+    font-family: 'Playfair Display', serif;
    }
    
    a {
     text-decoration: none;
+   }
+
+   li {
+      text-transform: capitalize;
    }
 `
