@@ -8,6 +8,9 @@ export const ButtonBase = css`
         padding: 5px 10px;
         text-align: center;
         align-self: center;
+        font-size: 1.2rem;
+
+        cursor: pointer;
         &:hover {
             filter: brightness(150%);
         }

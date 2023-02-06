@@ -1,9 +1,10 @@
+import { StyledButtonSearch, StyledForm, StyledInput } from "./searchForm.component.styles"
+
 export const SearchForm = () => {
     return (
-        <form>
-            <input>
-            </input>
-            <button></button>
-        </form>
+        <StyledForm>
+            <StyledInput placeholder="quinoa"/>
+            <StyledButtonSearch>Search</StyledButtonSearch>
+        </StyledForm>
     )
 }
