@@ -1,16 +1,15 @@
 import axios from "axios";
-import { useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 export const useAxios = (url) => {
-    const [data, setData] = useState([]);
+    const [data, setData] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    const memoizedData = useMemo(() => {
-
+    useEffect(() => {
         const getData = async () => {
             try {
-                const response = await axios.get(url);
+                const response = await axios.get(url)
                 setData(response.data);
                 setIsLoading(false);
             } catch (error) {
@@ -18,9 +17,7 @@ export const useAxios = (url) => {
                 setError(error);
             }
         }
-        getData(url);
-        return data;
+        getData();
     }, [url]);
-
-    return {data: memoizedData, isLoading, error};
+    return {data, isLoading, error};
 }
