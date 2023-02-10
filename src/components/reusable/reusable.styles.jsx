@@ -9,9 +9,12 @@ export const ButtonBase = css`
         text-align: center;
         align-self: center;
         font-size: 1.2rem;
-
         cursor: pointer;
+        filter: brightness(150%);
         &:hover {
-            filter: brightness(150%);
+            filter: brightness(250%);
+        }
+        &:disabled {
+            filter: brightness(90%);
         }
 `

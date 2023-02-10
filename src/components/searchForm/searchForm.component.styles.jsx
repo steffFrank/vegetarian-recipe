@@ -5,6 +5,7 @@ export const StyledForm = styled.form`
     width: min(90vw, 500px);
     padding: 10px;
     margin: auto;
+    margin-bottom: 30px;
 `;
 
 export const StyledInput = styled.input`

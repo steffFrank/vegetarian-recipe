@@ -1,54 +1,84 @@
-import { createContext, useReducer } from "react";
+import { createContext, useState, useEffect } from "react";
+import axios from "axios";
 
 const baseUrl = process.env.REACT_APP_BASEURL;
 const apiQuery= `apiKey=${process.env.REACT_APP_APIKEY}`;
 const diet = process.env.REACT_APP_DIET;
+const resultsNumber = 30;
 
-const initialState = {
-    inputData: "",
-    url: ""
-}
-
-
-const reducer = (state, action) => {
-    const {type, payload} = action;
-    switch(type) {
-        case "SET_INPUT":
-            return {...state, inputData: payload}
-        case "SET_URL":
-            return {...state, url: payload}
-        default:
-            return state;
+export const RecipesContext = createContext({
+    inputData: "", 
+    url: "",
+    results: {
+        isLoading: true,
+        recipes: [],
+        error: null
     }
-}
-
-export const RecipesContext = createContext(initialState);
+});
 
 export const RecipesProvider = ({children}) => {
-    const [state, dispatch] = useReducer(reducer, initialState);
+    const [inputData, setInputData] = useState("");
+    const [url, setUrl] = useState("");
+    const [results, setResults] = useState( {
+        isLoading: true,
+        recipes: [],
+        error: null
+    })
 
     const handleInputData = event => {
-        dispatch({type: "SET_INPUT", payload: event.target.value });
+        setInputData(event.target.value);
     }
+
     const createUrl = id => {
-        if(!state.inputData) {
+        if(!inputData) {
             return;
         }
         let url = "";
         if (id !== "") {
             url = `${baseUrl}${id}/information?/${apiQuery}`;
         } else {
-            url = `${baseUrl}complexSearch?${apiQuery}&diet=${diet}&query=${state.inputData}`;
+            url = `${baseUrl}complexSearch?${apiQuery}&diet=${diet}&query=${inputData}&number=${resultsNumber}`;
         }
-        dispatch({type: "SET_URL", url });
+        setUrl(url);
     }
     
+    useEffect(() => {
+        const getData = async (url) => {
+            try {
+                if (!url) return;
+                const response = await axios.get(url);
+                const data = response.data;
+                setResults(prevResults => {
+                    return {
+                        ...prevResults,
+                        isLoading: false,
+                        recipes: data.results
+                    }
+                })
+            } catch(error) {
+                setResults(prevResults => {
+                    return {
+                        ...prevResults,
+                        error: error,
+                        isLoading: false
+                    }
+                })
+            }
+        }
+        getData(url);
+    }, [url]);
+
     const value = {
         handleInputData,
         createUrl,
-        inputData: state.inputData,
-        url: state.url
+        inputData,
+        url,
+        results
     };
 
-    return <RecipesContext.Provider value={value}>{children}</RecipesContext.Provider>
+    return (
+        <RecipesContext.Provider value={value}>
+            {children}
+        </RecipesContext.Provider>
+    );
 }

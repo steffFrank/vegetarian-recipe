@@ -1,8 +1,9 @@
 export const paths = {
     home : "/",
-    recipe: ":id",
-    favorites: "favorites",
-    search: "search"
+    recipe: "/search/:id",
+    favorites: "/favorites",
+    search: "/search",
+    error: "/error"
 }
 
 export const links = [
@@ -13,5 +14,5 @@ export const links = [
     {
         path: paths.favorites,
         name: "favorites"
-    }
+    },
 ]

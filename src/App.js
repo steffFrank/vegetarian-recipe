@@ -6,6 +6,7 @@ import { paths } from "./utils/route.utils";
 import { Error } from "./pages/error/error.page";
 import { Navigation } from "./pages/navigation/navigation.page";
 import { GlobalStyle } from "./App.styles";
+import { RecipesProvider } from "./context/recipes.context";
 
 const routes = [
   {
@@ -34,11 +35,10 @@ const App = () => {
   ]);
 
   return (
-    <>
+    <RecipesProvider>
       <GlobalStyle />
       <RouterProvider router={router} />
-    </>
-    
+    </RecipesProvider>    
   )
 }
 
