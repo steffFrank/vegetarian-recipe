@@ -7,6 +7,7 @@ import { Error } from "./pages/error/error.page";
 import { Navigation } from "./pages/navigation/navigation.page";
 import { GlobalStyle } from "./App.styles";
 import { RecipesProvider } from "./context/recipes.context";
+import { Recipe } from "./pages/recipe/recipe.page";
 
 const routes = [
   {
@@ -20,6 +21,10 @@ const routes = [
   {
     path: paths.search,
     element: <Search />
+  },
+  {
+    path: paths.recipe,
+    element: <Recipe />
   }
 ]
 

@@ -4,10 +4,10 @@ import { RecipesContext } from "../../context/recipes.context"
 import { StyledButtonSearch, StyledForm, StyledInput } from "./searchForm.component.styles"
 
 export const SearchForm = () => {
-    const { inputData, handleInputData, createUrl }= useContext(RecipesContext);
+    const { inputData, getDataByInput, handleInputData }= useContext(RecipesContext);
         const onSubmit = event => {
             event.preventDefault();
-            createUrl("", inputData);
+            getDataByInput();
         }
 
     return (

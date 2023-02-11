@@ -7,12 +7,14 @@ import { useNavigate } from "react-router-dom";
 
 export const RecipesPreview = () => {
 
-    const { results } = useContext(RecipesContext);
-    const { recipes, isLoading, error } = results;
+    const { resultsRecipes } = useContext(RecipesContext);
+    const { recipes, isLoading, error } = resultsRecipes;
     const navigate = useNavigate();
+
     useEffect(() => {
         if (error) navigate(paths.error);
-    })
+    });
+
     return (
         <StyledSection>
             {isLoading ? <div>loading..</div> : recipes.map(recipe => {

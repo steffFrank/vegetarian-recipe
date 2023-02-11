@@ -1,5 +1,12 @@
+import { useContext } from "react";
+import { RecipesContext } from "../../context/recipes.context";
+
 export const Recipe = () => {
+
+    const { resultsId } = useContext(RecipesContext);
+    
+    const {recipe, isLoading, error } = resultsId;
     return (
-        <div> Recipe page</div>
+        <div>{recipe.instructions}</div>
     )
 }
