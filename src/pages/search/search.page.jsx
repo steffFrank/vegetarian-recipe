@@ -8,7 +8,7 @@ export const Search = () => {
     return (
        <section>
             <SearchForm />
-          {url &&   <RecipesPreview />}
+           {url &&  <RecipesPreview /> } 
         </section>
 )
 }

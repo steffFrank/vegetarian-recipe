@@ -9,30 +9,20 @@ const resultsNumber = 30;
 export const RecipesContext = createContext({
     inputData: "", 
     url: "",
-    resultsRecipes: {
+    getRecipesFromInput: () => {},
+    recipesResult: {
         isLoading: true,
         recipes: [],
         error: null
     },
-    resultsId: {
-        isLoading: true,
-        recipe: {},
-        error: null
-    }
 });
 
 export const RecipesProvider = ({children}) => {
     const [inputData, setInputData] = useState("");
     const [url, setUrl] = useState("");
-
-    const [resultsRecipes, setResultsRecipes] = useState( {
+    const [recipesResult, setRecipesResult] = useState({
         isLoading: true,
         recipes: [],
-        error: null
-    });
-    const [resultsId, setResultsId] = useState( {
-        isLoading: true,
-        recipe: {},
         error: null
     });
 
@@ -40,65 +30,37 @@ export const RecipesProvider = ({children}) => {
         setInputData(event.target.value);
     }
     
-    const getDataByInput = async () => {
-        if (!inputData) return;
+    const getRecipesFromInput = async () => {
+        if (!inputData || recipesResult.isLoading) return;
         const newUrl = `${baseUrl}complexSearch?${apiQuery}&diet=${diet}&query=${inputData}&number=${resultsNumber}`;
-        setUrl(newUrl);
         try {
             const response = await axios.get(newUrl);
             const data = response.data.results;
-            setResultsRecipes(prevResults => {
+            setRecipesResult(prevResult => {
                 return {
-                    ...prevResults,
-                    isLoading: false,
+                    ...prevResult,
+                    isLoading : false,
                     recipes: data
                 }
             });
-        } catch(error) {
-            setResultsRecipes(prevResults => {
+           setUrl(newUrl);
+        } catch(err) {
+            setRecipesResult(prevResult => {
                 return {
-                    ...prevResults,
-                    error: error,
-                    isLoading: false
+                    ...prevResult,
+                    isLoading : false,
+                    error: err
                 }
-            })
+            });
         }
     }
         
-
-    const getDataById = async (id) => {
-        if (!id) return;
-        const newUrl = `${baseUrl}${id}/information?${apiQuery}`;
-    
-        try {
-            const response = await axios.get(newUrl);
-            const data = response.data;
-            setResultsId(prevResults => {
-                return {
-                    ...prevResults,
-                    isLoading: false,
-                    recipe: data
-                }
-            });
-        } catch(error) {
-            setResultsId(prevResults => {
-                return {
-                    ...prevResults,
-                    error: error,
-                    isLoading: false
-                }
-            });
-        }
-    }
-
     const value = {
         handleInputData,
         inputData,
-        resultsRecipes,
-        getDataByInput,
-        getDataById,
+        getRecipesFromInput,
         url,
-        resultsId
+        recipesResult,
     };
 
     return (

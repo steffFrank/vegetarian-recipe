@@ -1,59 +1,46 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
-
+import { Dropdown } from "../../components/dropdown/dropdown.component";
+import { useAxios } from "../../utils/fetch.utils";
+import { StyledImg, StyledInstruction, StyledSection } from "./recipe.styles";
 
 
 export const Recipe = () => {
     const baseUrl = process.env.REACT_APP_BASEURL;
     const apiQuery= `apiKey=${process.env.REACT_APP_APIKEY}`;
     const { id } = useParams();
-    const [isLoading, setIsloading] = useState(true);
-    const [error, setError] = useState(null);
-    const [data, setData] = useState();
-
-    useEffect(() => {
-        const getData = async (url) => {
-
-            try {
-                const response = await axios.get(url);
-                const data = response.data;
-                setData(data);
-                setIsloading(false);
-            } catch(error) {
-                setIsloading(false);
-                setError(error);
-            }
-        }
-        getData(`${baseUrl}${id}/information?${apiQuery}`);
-    }, []);
+    
+    const { isLoading, data, error } = useAxios(`${baseUrl}${id}/information?${apiQuery}`);
 
     if (error) {
         return <div>error...</div>;
     }
 
     return (
-      isLoading ? <div>loading...</div> : <section>
-            <img src={data.image} alt={data.title} />
+      isLoading ? <div>loading...</div> : 
+      <StyledSection>
             <h1>{data.title}</h1>
+            <StyledImg src={data.image} alt={data.title} />
+            
             <span>Ready in {data.readyInMinutes} minutes</span>
-            <span>{data.servings} servings</span>
-            <div><h2>Diet</h2>
+            <span> - {data.servings} servings</span>
+            <Dropdown title="Diet">
                 {data.diets.map((diet, index) => {
-                return <li key={index}>{diet}</li>})}</div>
+                return <li key={index}>{diet}</li>})}
+            </Dropdown>
             <div><h2>Ingredients</h2>
                 {data.extendedIngredients.map(ing => {
                 return <li key={ing.id}>{ing.name} - <span>{ing.amount} {ing.unit}</span></li>
             })}</div>
-            <div>
+            <StyledInstruction>
                 <h2>Instructions</h2>
                 {data.analyzedInstructions[0].steps.map(step => {
-                    return (<div key={step.number}>
-                        <h3>Step {step.number}</h3>
-                        <p>{step.step}</p>
-                    </div>)
+                    return (
+                        <Dropdown title={`Step ${step.number}`} key={step.number}>
+                            <p>{step.step}</p>
+                        </Dropdown> 
+                    )
                 })}
-            </div>
-        </section>
+            </StyledInstruction>
+      </StyledSection>
     )
 }

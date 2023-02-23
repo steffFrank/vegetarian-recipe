@@ -7,19 +7,16 @@ import { useNavigate } from "react-router-dom";
 
 export const RecipesPreview = () => {
 
-    const { resultsRecipes } = useContext(RecipesContext);
-    const { recipes, isLoading, error } = resultsRecipes;
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        if (error) navigate(paths.error);
-    });
-
+    const { recipesResult } = useContext(RecipesContext);
+    const { recipes, isLoading, error } = recipesResult;
+    
     return (
         <StyledSection>
-            {isLoading ? <div>loading..</div> : recipes.map(recipe => {
-                return <RecipeCard key={recipe.id} recipe={recipe} />
+            {/* Some indexes from spoonacular are duplicated therefore I am using the map index */}
+            {isLoading ? <div>loading..</div> : recipes.map((recipe, index) => {
+                return <RecipeCard key={index} recipe={recipe} />
             })}
         </StyledSection>
-    )
+    );
 }
+
