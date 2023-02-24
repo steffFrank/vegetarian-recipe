@@ -12,6 +12,10 @@ export const StyledBar = styled.div`
     border-radius: 5px;
     background-color: var(--secondary-color);
     color: var(--green-clr);
+    cursor: pointer;
+    &:hover {
+        filter: brightness(120%);
+    }
 `;
 
 export const StyledIcon = styled(FontAwesomeIcon)`
