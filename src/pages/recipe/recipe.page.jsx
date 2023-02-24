@@ -1,7 +1,8 @@
 import { useParams } from "react-router-dom";
 import { Dropdown } from "../../components/dropdown/dropdown.component";
+import { Table } from "../../components/table/table.component";
 import { useAxios } from "../../utils/fetch.utils";
-import { StyledImg, StyledInstruction, StyledSection } from "./recipe.styles";
+import { StyledImg, StyledInstruction, StyledSection, StyledParagraph } from "./recipe.styles";
 
 
 export const Recipe = () => {
@@ -21,16 +22,17 @@ export const Recipe = () => {
             <h1>{data.title}</h1>
             <StyledImg src={data.image} alt={data.title} />
             
-            <span>Ready in {data.readyInMinutes} minutes</span>
-            <span> - {data.servings} servings</span>
+            <StyledParagraph>
+                <p>Ready in {data.readyInMinutes} minutes</p>
+                <p>{data.servings} servings</p>
+            </StyledParagraph>
             <Dropdown title="Diet">
                 {data.diets.map((diet, index) => {
                 return <li key={index}>{diet}</li>})}
             </Dropdown>
-            <div><h2>Ingredients</h2>
-                {data.extendedIngredients.map(ing => {
-                return <li key={ing.id}>{ing.name} - <span>{ing.amount} {ing.unit}</span></li>
-            })}</div>
+            <Table title="Ingredients">
+                {data.extendedIngredients}
+            </Table>
             <StyledInstruction>
                 <h2>Instructions</h2>
                 {data.analyzedInstructions[0].steps.map(step => {

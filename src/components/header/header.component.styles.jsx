@@ -6,7 +6,7 @@ export const HeaderStyle = styled.header`
     align-items: center;
     width: 100%;
     border-bottom: 1px solid var(--green-clr-light);
-    margin-bottom: 70px;
+    margin-bottom: 40px;
 `
 
 export const NavStyle = styled.nav`
@@ -21,4 +21,4 @@ export const NavStyle = styled.nav`
             }
         }
     }
-`
+`;

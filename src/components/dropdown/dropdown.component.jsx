@@ -12,7 +12,7 @@ export const Dropdown = ({title, children}) => {
     return (
         <div>
             <StyledBar onClick={handleClick}>
-            <h2>{title}</h2>
+            <h3>{title}</h3>
             <StyledIcon isOpen={isOpen} icon={faChevronDown} />  
             </StyledBar>
             <StyledBox isOpen={isOpen}>{children}</StyledBox>
