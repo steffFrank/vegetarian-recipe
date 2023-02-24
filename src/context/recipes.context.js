@@ -31,7 +31,7 @@ export const RecipesProvider = ({children}) => {
     }
     
     const getRecipesFromInput = async () => {
-        if (!inputData || recipesResult.isLoading) return;
+        if (!inputData) return;
         const newUrl = `${baseUrl}complexSearch?${apiQuery}&diet=${diet}&query=${inputData}&number=${resultsNumber}`;
         try {
             const response = await axios.get(newUrl);
