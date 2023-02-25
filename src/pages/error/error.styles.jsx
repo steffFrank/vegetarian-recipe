@@ -15,6 +15,7 @@ export const StyledSection = styled.section`
     p:first-of-type {
         font-size: clamp(1.2rem, 25vw, 3rem);
         color: var(--primary-color);
+        text-align: center;
     }
     p > i {
         font-size: clamp(0.8rem, 50vw, 2rem);

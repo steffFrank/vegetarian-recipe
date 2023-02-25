@@ -4,6 +4,7 @@ import { Navigation } from "./pages/navigation/navigation.page";
 import { GlobalStyle } from "./App.styles";
 import { RecipesProvider } from "./context/recipes.context";
 import { routes } from "./utils/route.utils";
+import { FavoritesProvider } from "./context/favorites.context";
 
 
 const App = () => {
@@ -24,8 +25,10 @@ const App = () => {
 
   return (
     <RecipesProvider>
-      <GlobalStyle />
-      <RouterProvider router={router} />
+      <FavoritesProvider>
+        <GlobalStyle />
+        <RouterProvider router={router} />
+      </FavoritesProvider>
     </RecipesProvider>    
   )
 }

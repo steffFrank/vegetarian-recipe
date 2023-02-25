@@ -12,7 +12,7 @@ export const Recipe = () => {
     
     const { isLoading, data, error } = useAxios(`${baseUrl}${id}/information?${apiQuery}`);
 
-    if (!data || error) {
+    if (error ) {
         throw new Response("", {
             status: 404,
             statusText: "Not Found",

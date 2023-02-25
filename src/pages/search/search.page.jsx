@@ -5,10 +5,15 @@ import { RecipesContext } from "../../context/recipes.context";
 
 export const Search = () => {
     const { url } = useContext(RecipesContext);
+    const { recipesResult } = useContext(RecipesContext);
+
     return (
        <section>
             <SearchForm />
-           {url &&  <RecipesPreview /> } 
+           {url &&  <RecipesPreview 
+                        recipesResult={recipesResult} 
+                        isButton={true}/> 
+           } 
         </section>
 )
 }
