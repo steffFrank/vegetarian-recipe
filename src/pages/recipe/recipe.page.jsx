@@ -12,10 +12,13 @@ export const Recipe = () => {
     
     const { isLoading, data, error } = useAxios(`${baseUrl}${id}/information?${apiQuery}`);
 
-    if (error) {
-        return <div>error...</div>;
+    if (!data || error) {
+        throw new Response("", {
+            status: 404,
+            statusText: "Not Found",
+        });
     }
-
+    
     return (
       isLoading ? <div>loading...</div> : 
       <StyledSection>

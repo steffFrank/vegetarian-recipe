@@ -5,10 +5,10 @@ import { StyledButtonSearch, StyledForm, StyledInput } from "./searchForm.compon
 
 export const SearchForm = () => {
     const { inputData, getRecipesFromInput, handleInputData }= useContext(RecipesContext);
-        const onSubmit = event => {
-            event.preventDefault();
-            getRecipesFromInput();
-        }
+    const onSubmit = event => {
+        event.preventDefault();
+        getRecipesFromInput();
+    }
     
     return (
         <StyledForm >
