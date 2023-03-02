@@ -1,25 +1,16 @@
-import { useContext, useState } from "react";
-import { FavoritesContext } from "../../context/favorites.context";
+import { FavoriteButton } from "../favoriteButton/favoriteButton.component";
 import { StyledArticle, StyledTitle, StyledImg, StyledLink } from "./recipeCard.component.styles";
 
-export const RecipeCard = ({recipe, isButton}) => {
-    const [isFavorite, setIsFavorite ] = useState(false);
-    const { addToFavorites, removeFromFavorites } = useContext(FavoritesContext);
-
-    const handleButtonClick = () => {
-        isFavorite ? removeFromFavorites(recipe) : addToFavorites(recipe)
-        setIsFavorite(prevState => !prevState);
-    }
+export const RecipeCard = ({recipe}) => {
 
     return (
         <>
-            {isButton && <button onClick={handleButtonClick}>{isFavorite ? "remove from favorites" : "add to Favorites" }</button>}
+            <FavoriteButton recipe={recipe} />
             <StyledLink to={`${recipe.id}`}>
-            <StyledTitle>{recipe.title}</StyledTitle>
-            
-            <StyledArticle>
-                <StyledImg src={recipe.image} alt={recipe.title} />
-            </StyledArticle>
+                <StyledTitle>{recipe.title}</StyledTitle>
+                <StyledArticle>
+                    <StyledImg src={recipe.image} alt={recipe.title} />
+                </StyledArticle>
             </StyledLink>
         </>
         

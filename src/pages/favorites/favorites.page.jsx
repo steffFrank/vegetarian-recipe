@@ -8,9 +8,9 @@ export const Favorites = () => {
     
     return (
         favoriteRecipes.length === 0 ? <div>No data yet!</div> : <StyledSection>
-            {/* Some indexes from spoonacular are duplicated therefore I am using the map index */}
+            {/* Some ids from spoonacular are duplicated therefore I am using the map index */}
             {favoriteRecipes.map((recipe, index) => {
-                return <RecipeCard key={index} recipe={recipe} isButton={false} />
+                return <RecipeCard key={index} recipe={recipe}/>
             })}
         </StyledSection>
     );

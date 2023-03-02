@@ -36,11 +36,13 @@ export const RecipesProvider = ({children}) => {
         try {
             const response = await axios.get(newUrl);
             const data = response.data.results;
+            // Add isFavorite to each recipe
+            const newData = data.map(recipe => { return {...recipe, isFavorite: false}})
             setRecipesResult(prevResult => {
                 return {
                     ...prevResult,
                     isLoading : false,
-                    recipes: data
+                    recipes: newData
                 }
             });
            setUrl(newUrl);
