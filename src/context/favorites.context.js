@@ -1,47 +1,37 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 const getFavorites = () => {
     return JSON.parse(localStorage.getItem("favorites")) || [];
 }
-const updateFavoriteRecipes = (newFavorites) => {
-    localStorage.setItem("favorites", JSON.stringify(newFavorites));
-}
 
 export const FavoritesContext = createContext({
     toggleFavorites: () => {},
-    favoriteRecipes: getFavorites()
+    favoriteRecipes: []
 });
 
 export const FavoritesProvider = ({children}) => {
     const [favoriteRecipes, setFavoriteRecipes] = useState(getFavorites());
 
-    const addToFavorites = (recipe) => {
-        const checkRecipe =  favoriteRecipes.find(favoriteRecipe => favoriteRecipe.id === recipe.id);
-        if (checkRecipe) {
-            return;
-        } else {
-            const newRecipe = {...recipe, isFavorite: true}
-            const newFavorites = [...favoriteRecipes, newRecipe];
-            setFavoriteRecipes(newFavorites);
-            updateFavoriteRecipes(newFavorites);
-        }
-    }
+   useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favoriteRecipes));
+   }, [favoriteRecipes]);
 
-    const removeFromFavorites = (recipe) => {
-            const updatedFavorites = favoriteRecipes.map(favoriteRecipe => {
-                if (favoriteRecipe.id === recipe.id) {
-                    favoriteRecipe.isFavorite = false;
-                }
-                return favoriteRecipe;
-            })
-            const newFavorites = updatedFavorites.filter(favoriteRecipe => favoriteRecipe.id !== recipe.id);
-            setFavoriteRecipes(newFavorites);
-            updateFavoriteRecipes(newFavorites);
-        }
+   const toggleFavorites = (recipe) => {
+    const checkRecipe = favoriteRecipes.find(favoriteRecipe => favoriteRecipe.id === recipe.id);
+
+    if (checkRecipe) {
+        const removedFavorite = favoriteRecipes.filter(favoriteRecipe => favoriteRecipe.id !== recipe.id);
+        recipe.isFavorite = false;
+        setFavoriteRecipes(removedFavorite);
+    } else {
+        const newFavorites = [...favoriteRecipes, recipe];
+        recipe.isFavorite = true;
+        setFavoriteRecipes(newFavorites);
+    }
+   }
 
     const value = {
-        removeFromFavorites,
-        addToFavorites,
+        toggleFavorites,
         favoriteRecipes,
     }
     return <FavoritesContext.Provider value={value}>{children}</FavoritesContext.Provider>
