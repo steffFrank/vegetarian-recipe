@@ -1,4 +1,6 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState, useContext } from "react";
+import { RecipesContext } from "./recipes.context";
+
 
 const getFavorites = () => {
     return JSON.parse(localStorage.getItem("favorites")) || [];
@@ -11,6 +13,7 @@ export const FavoritesContext = createContext({
 
 export const FavoritesProvider = ({children}) => {
     const [favoriteRecipes, setFavoriteRecipes] = useState(getFavorites());
+    const { updateRecipeFavoriteStatus } = useContext(RecipesContext);
 
    useEffect(() => {
     localStorage.setItem("favorites", JSON.stringify(favoriteRecipes));
@@ -23,10 +26,12 @@ export const FavoritesProvider = ({children}) => {
         const removedFavorite = favoriteRecipes.filter(favoriteRecipe => favoriteRecipe.id !== recipe.id);
         recipe.isFavorite = false;
         setFavoriteRecipes(removedFavorite);
+        updateRecipeFavoriteStatus(recipe.id, false);
     } else {
-        const newFavorites = [...favoriteRecipes, recipe];
+        const newFavorites = [...favoriteRecipes, {...recipe, isFavorite: true}];
         recipe.isFavorite = true;
         setFavoriteRecipes(newFavorites);
+        updateRecipeFavoriteStatus(recipe.id, true);
     }
    }
 
