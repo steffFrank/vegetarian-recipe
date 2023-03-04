@@ -34,6 +34,7 @@ export const RecipesProvider = ({children}) => {
     const handleInputData = event => {
         setInputData(event.target.value);
     }
+    
     const updateRecipeFavoriteStatus = (recipeId, isFavorite) => {
         setRecipesResult(prevResult => {
           const recipes = prevResult.recipes.map(recipe => {
