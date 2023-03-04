@@ -13,13 +13,14 @@ export const MainStyle = styled.main`
     display: flex;
     flex-direction: column;
     gap: 20px;
+    border-radius: 10px;
 `;
 
 export const StyledCoverImg = styled(CoverImg)`
     display: block;
     width: min(95vw, 600px);
     height: auto;
-    margin: auto;
+    margin: -30px auto 10px;
 `
 export const TextStyle = styled.p`
     color: #fff;
