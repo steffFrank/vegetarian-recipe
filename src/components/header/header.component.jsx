@@ -1,21 +1,21 @@
-import { NavLink, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/images/logo.svg";
 import { links } from "../../utils/route.utils";
-import { HeaderStyle, NavStyle } from "./header.component.styles";
+import { StyledHeader, StyledNav, StyledNavLink } from "./header.component.styles";
 
 export const Header = () => {
     return (
-        <HeaderStyle>
+        <StyledHeader>
             <Link to="/"><Logo /></Link>
-            <NavStyle>
+            <StyledNav>
                 <ul>
                     {links.map((link, index) => {
-                        return <NavLink to={link.path} key={index}>
+                        return <StyledNavLink to={link.path} key={index}>
                                 <li>{link.name}</li>
-                        </NavLink>
+                        </StyledNavLink>
                     })}
                 </ul>
-            </NavStyle>
-        </HeaderStyle>
+            </StyledNav>
+        </StyledHeader>
     )
 }
