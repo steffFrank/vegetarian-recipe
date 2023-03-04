@@ -12,6 +12,8 @@ export const GlobalStyle = createGlobalStyle`
     background-color: var(--bg-color);
     padding: 0 20px;
     font-family: 'Lato', sans-serif;
+    max-width: 1440px;
+    margin: auto;
    }
 
    h1, h2, h3, h4 {
