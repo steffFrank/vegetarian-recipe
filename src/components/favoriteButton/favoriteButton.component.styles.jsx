@@ -7,17 +7,22 @@ export const StyledFavoriteButton = styled.div`
     font-size: 2.5rem;
     color: ${props => props.isFavorite ? `var(--secondary-color)` : `var(--bg-color)`};
     cursor: pointer;
-    span {
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+
+    div {
         display: none;
     }
     &:hover {
-        span {
-            position: absolute;
+        color: ${props => props.isFavorite ? `var(--bg-color)` : `var(--secondary-color)`};
+        
+        div {
             display: block;
-            width: 200px;
+            position: absolute;
+            top: -10px;
+            right: 0;
+            text-align: center;
+            width: 180px;
             font-size: 1.1rem;
-            top: -25px;
-            left: -140px;
             text-align: center;
             color: ${props => props.isFavorite ? `var(--bg-color)` : `var(--secondary-color)`};
         }

@@ -16,7 +16,7 @@ export const FavoriteButton = ({recipe}) => {
     return (
             <StyledFavoriteButton onClick={handleButtonClick} isFavorite={recipe.isFavorite}>
                 <FontAwesomeIcon icon={faHeart} />
-                <span>{recipe.isFavorite ? "Remove From Favorite" : "Add To Favorite"}</span>
+                <div>{recipe.isFavorite ? "Remove From Favorite" : "Add To Favorite"}</div>
             </StyledFavoriteButton>
     )
 }

@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export const StyledForm = styled.form`
     width: min(90vw, 700px);
     height: 50px;
-    /* padding: 10px; */
     margin: auto;
     margin-bottom: 40px;
 `;
@@ -33,6 +32,7 @@ export const StyledButtonText = styled.span`
     display: none;
     @media (min-width: 768px) {
         display: inline;
+        font-size: 1.4rem;
     }
 `;
 

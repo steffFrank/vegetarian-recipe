@@ -1,39 +1,40 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { FavoriteButton } from "../favoriteButton/favoriteButton.component";
-import { StyledFavoriteButton } from "../favoriteButton/favoriteButton.component.styles";
 
 export const StyledLink  = styled(Link)`
     position: relative;
+    height: clamp(280px, 15vw, 350px);
     border-radius: 10px;
     color: #FFF;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
 `
 export const StyledArticle = styled.article`
     position: relative;
     height: clamp(280px, 15vw, 350px);
-    mix-blend-mode: darken;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
+    z-index: 10;
+    border-radius: 10px;
 `
 
 export const StyledImg = styled.img`
     width: 100%;
-    height: 100%;
+    height: clamp(280px, 15vw, 350px);
     object-fit: cover;
     border-radius: 10px;
-    position: relative;
+    mix-blend-mode: darken;
+    z-index: 5;
 `
-
-export const StyledTitle = styled.h2`
+export const StyledDescription = styled.div`
     position: absolute;
+    width: 100%;
     bottom: 0;
-    padding: 20px 10px;
-    z-index: 100;
-    width: 60%;
-`
-
-export const StyledButton = styled.div`
-    /* display: block; */
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 20;
+    h2 {
+        width: 70%;
+        font-family: "Lato", sans-serif;
+        text-transform: uppercase;
+    }
 `
