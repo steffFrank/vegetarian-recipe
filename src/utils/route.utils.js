@@ -6,6 +6,7 @@ import { Recipe } from "../pages/recipe/recipe.page";
 export const paths = {
     home : "/",
     recipe: "/search/:id",
+    favoriteRecipe: "/favorites/:id",
     favorites: "/favorites",
     search: "/search",
     error: "/error"
@@ -39,4 +40,8 @@ export const routes = [
       path: paths.recipe,
       element: <Recipe />
     },
+    {
+      path: paths.favoriteRecipe,
+      element: <Recipe />
+    }
   ]
