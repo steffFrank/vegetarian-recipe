@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 export const StyledBar = styled.div`
     width: min(100%, 400px);
     margin: auto;
@@ -18,7 +17,7 @@ export const StyledBar = styled.div`
     }
 `;
 
-export const StyledIcon = styled(FontAwesomeIcon)`
+export const StyledIcon = styled.div`
     transform: ${props => props.isOpen  ? `rotate(180deg)` : `rotate(0deg)`};
     transition: all 0.4s cubic-bezier(0.215, 0.610, 0.355, 1);
 `;
@@ -32,9 +31,8 @@ export const StyledBox = styled.div`
     border-radius: 5px;
     padding: 5px;
     top: -1px;
-    display: ${props => props.isOpen ? "block" : "none"};
-    
     li {
         list-style-type: none;
     }
 `;
+
