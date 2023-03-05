@@ -5,19 +5,29 @@ export const StyledSection = styled.section`
     padding: 5px;
     margin-bottom: 30px;
     h1 {
+        font-size: clamp(1.2rem, 2vw, 1.8rem);
         text-align: center;
         margin-bottom: 20px;
         text-transform: uppercase;
         font-weight: 700;
         color: var(--green-clr);
     }
+    h2 {
+        text-align: center;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+    }
 `;
 export const StyledParagraph = styled.div`
-    font-size: 0.8rem;
+    font-size: clamp(1rem, 2vw, 1.5rem);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 15px;
+    svg {
+        color: var(--secondary-color);
+        margin: 0 5px;   
+    }
 `;
 
 export const StyledImg = styled.img`
@@ -26,12 +36,7 @@ export const StyledImg = styled.img`
 `;
 
 export const StyledInstruction = styled.div`
-    display: flex;
+    display: grid;
     gap: 10px;
-    flex-direction: column;
-
-    h2 {
-        text-align: center;
-        text-transform: uppercase;
-    }
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
 `

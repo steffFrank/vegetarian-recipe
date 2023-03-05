@@ -25,6 +25,7 @@ export const StyledIcon = styled(FontAwesomeIcon)`
 
 export const StyledBox = styled.div`
     width: min(100%, 400px);
+    font-size: clamp(0.8rem, 3vw, 1.4rem);
     margin: auto;
     position: relative;
     border: 1px solid var(--secondary-color);
@@ -35,6 +36,5 @@ export const StyledBox = styled.div`
     
     li {
         list-style-type: none;
-        font-size: 0.8rem;
     }
 `;

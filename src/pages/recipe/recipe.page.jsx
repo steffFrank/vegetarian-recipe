@@ -3,13 +3,13 @@ import { Dropdown } from "../../components/dropdown/dropdown.component";
 import { Table } from "../../components/table/table.component";
 import { useAxios } from "../../utils/fetch.utils";
 import { StyledImg, StyledInstruction, StyledSection, StyledParagraph } from "./recipe.styles";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClock, faUtensils } from "@fortawesome/free-solid-svg-icons";
 
 export const Recipe = () => {
     const baseUrl = process.env.REACT_APP_BASEURL;
     const apiQuery= `apiKey=${process.env.REACT_APP_APIKEY}`;
     const { id } = useParams();
-    
     const { isLoading, data, error } = useAxios(`${baseUrl}${id}/information?${apiQuery}`);
 
     if (error ) {
@@ -24,10 +24,9 @@ export const Recipe = () => {
       <StyledSection>
             <h1>{data.title}</h1>
             <StyledImg src={data.image} alt={data.title} />
-            
             <StyledParagraph>
-                <p>Ready in {data.readyInMinutes} minutes</p>
-                <p>{data.servings} servings</p>
+                <p><FontAwesomeIcon icon={faClock} /> Ready in {data.readyInMinutes} minutes </p>
+                <p>{data.servings} servings <FontAwesomeIcon icon={faUtensils} /></p>
             </StyledParagraph>
             <Dropdown title="Diet">
                 {data.diets.map((diet, index) => {
@@ -36,8 +35,9 @@ export const Recipe = () => {
             <Table title="Ingredients">
                 {data.extendedIngredients}
             </Table>
+            <h2>Instructions</h2>
             <StyledInstruction>
-                <h2>Instructions</h2>
+               
                 {data.analyzedInstructions[0].steps.map(step => {
                     return (
                         <Dropdown title={`Step ${step.number}`} key={step.number}>
