@@ -11,6 +11,7 @@ export const StyledHeader = styled.header`
 `
 
 export const StyledNav = styled.nav`
+    font-size: clamp(0.8rem, 2vw, 1.5rem);
     ul {
         display: flex;
         gap: 15px;
