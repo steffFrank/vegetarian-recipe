@@ -7,10 +7,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock, faUtensils } from "@fortawesome/free-solid-svg-icons";
 
 export const Recipe = () => {
-    const baseUrl = process.env.REACT_APP_BASEURL;
-    const apiQuery= `apiKey=${process.env.REACT_APP_APIKEY}`;
+   
     const { id } = useParams();
-    const { isLoading, data, error } = useAxios(`${baseUrl}${id}/information?${apiQuery}`);
+    const { isLoading, data, error } = useAxios(id);
 
     if (error ) {
         throw new Response("", {
