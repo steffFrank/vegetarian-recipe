@@ -5,12 +5,13 @@ import { useAxios } from "../../utils/fetch.utils";
 import { StyledImg, StyledInstruction, StyledSection, StyledParagraph } from "./recipe.styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock, faUtensils } from "@fortawesome/free-solid-svg-icons";
+import { Loading } from "../../components/loading/loading.component";
 
 export const Recipe = () => {
    
     const { id } = useParams();
     const { isLoading, data, error } = useAxios(id);
-
+    
     if (error ) {
         throw new Response("", {
             status: 404,
@@ -19,7 +20,7 @@ export const Recipe = () => {
     }
     
     return (
-      isLoading ? <div>loading...</div> : 
+      isLoading ? <Loading /> : 
       <StyledSection>
             <h1>{data.title}</h1>
             <StyledImg src={data.image} alt={data.title} />
