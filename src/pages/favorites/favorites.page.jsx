@@ -2,7 +2,8 @@ import { useContext } from "react";
 import { StyledSection } from "../../components/recipesPreview/recipesPreview.component.styles";
 import { FavoritesContext } from "../../context/favorites.context";
 import { RecipeCard } from "../../components/recipeCard/recipeCard.component";
-import { StyledTitle, StyledEmptyMessage } from "./favorites.styles";
+import { StyledTitle } from "./favorites.styles";
+import { StyledEmptyMessage } from "../../components/reusable/reusable.styles";
 
 export const Favorites = () => {
     const { favoriteRecipes } = useContext(FavoritesContext);

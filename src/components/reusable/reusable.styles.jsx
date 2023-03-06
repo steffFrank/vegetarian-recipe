@@ -1,4 +1,4 @@
-import {css} from "styled-components";
+import styled, {css} from "styled-components";
 
 export const ButtonBase = css`
     color: var(--primary-color);
@@ -17,4 +17,12 @@ export const ButtonBase = css`
     &:disabled {
         filter: brightness(90%);
     }
+`
+
+export const StyledEmptyMessage = styled.div`
+    margin-top: 10vh;
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 2rem;
+    color: var(--green-clr-light);
 `
