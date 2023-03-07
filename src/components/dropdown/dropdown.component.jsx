@@ -11,14 +11,14 @@ export const Dropdown = ({title, children}) => {
     }
 
     return (
-        <div>
-            <StyledBar onClick={handleClick}>
-            <h3>{title}</h3>
-            <StyledIcon isOpen={isOpen}>
-                <FontAwesomeIcon icon={faChevronDown} />
-            </StyledIcon>  
+        <div data-testid="dropdown">
+            <StyledBar  data-testid="bar" onClick={handleClick}>
+                <h3 data-testid="title">{title}</h3>
+                <StyledIcon data-testid="icon" isOpen={isOpen}>
+                    <FontAwesomeIcon icon={faChevronDown} />
+                </StyledIcon>  
             </StyledBar>
-            {isOpen && <StyledBox>{children}</StyledBox>}
+            {isOpen && <StyledBox data-testid="textBox">{children}</StyledBox>}
         </div>
     );
 }

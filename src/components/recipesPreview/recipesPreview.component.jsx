@@ -8,7 +8,7 @@ export const RecipesPreview = ({recipesResult}) => {
     const { recipes, isLoading, error  } = recipesResult;
     if (error || recipes.length === 0) {
        return ( 
-        <StyledEmptyMessage>Sorry! no result was found for this input</StyledEmptyMessage> 
+        <StyledEmptyMessage>Sorry! no result was found for this ingredient</StyledEmptyMessage> 
        )
     }
     return (
