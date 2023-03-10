@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/steffFrank/vegetarian-recipe">
-    <img src="src/assets/images/bg-image.svg" alt="Logo" width="400" height="400">
+    <img src="src/assets/images/bg-image.svg" alt="Logo" width="600" height="600">
   </a>
 
 <h3 align="center">REACT - VEGETARIAN RECIPES</h3>
@@ -49,7 +49,8 @@
 </details>
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## About The Project  
+This project is a vegetarian recipes app built with React. The app provides a comprehensive database of vegetarian recipes that users can search and browse through. Users can also save their favorite recipes. 
 
 [<img src="src/assets/images/green_eats_screenshot.png" />](https://green-eats-veg.netlify.app/)
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -62,7 +63,13 @@
 * [axios](https://www.axios.com/)
 * [FontAwesome](https://fontawesome.com/)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#top">back to top</a>)</p>  
+
+### Features    
+* Search and browse vegetarian recipes  
+* Save your favorite recipes  
+* Display further information of a recipe   
+* Mobile responsive and accessible design  
 
 <!-- GETTING STARTED -->
 ## Getting Started
