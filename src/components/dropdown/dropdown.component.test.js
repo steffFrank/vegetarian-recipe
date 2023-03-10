@@ -1,6 +1,7 @@
+import "../../setupTests";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { Dropdown } from "./dropdown.component";
-import "../../setupTests";
+
 
 describe("Dropdown component", () => {
     it("should be closed at first render", () => {
