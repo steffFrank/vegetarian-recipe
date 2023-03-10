@@ -10,12 +10,10 @@
 <h3 align="center">REACT - VEGETARIAN RECIPES</h3>
 
   <p align="center">
-    project_description
-    <br />
-    <a href="https://github.com/steffFrank/vegetarian-recipe"><strong>Explore the docs »</strong></a>
+    This project is a vegetarian recipes app built with React. The app provides a comprehensive database of vegetarian recipes that users can search and browse through. Users can also save their favorite recipes.   
     <br />
     <br />
-    <a href="https://github.com/steffFrank/vegetarian-recipe">View Demo</a>
+    <a href="https://green-eats-veg.netlify.app/">View Demo</a>
     ·
     <a href="https://github.com/steffFrank/vegetarian-recipe/issues">Report Bug</a>
     ·
@@ -50,7 +48,6 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project  
-This project is a vegetarian recipes app built with React. The app provides a comprehensive database of vegetarian recipes that users can search and browse through. Users can also save their favorite recipes. 
 
 [<img src="src/assets/images/green_eats_screenshot.png" />](https://green-eats-veg.netlify.app/)
 <p align="right">(<a href="#top">back to top</a>)</p>
