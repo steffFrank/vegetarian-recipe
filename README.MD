@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/steffFrank/vegetarian-recipe">
-    <img src="src/assets/images/bg-image.svg" alt="Logo" width="200" height="200">
+    <img src="src/assets/images/bg-image.svg" alt="Logo" width="400" height="400">
   </a>
 
 <h3 align="center">REACT - VEGETARIAN RECIPES</h3>
@@ -41,7 +41,6 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -52,10 +51,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Green Eats][product-screenshot]](https://green-eats-veg.netlify.app/)
-
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `steffFrank`, `vegetarian-recipe`, `twitter_handle`, `linkedin_username`, `email`, `email_client`, `REACT - VEGETARIAN RECIPES`, `project_description`
-
+[<img src="src/assets/images/green_eats_screenshot.png" />](https://green-eats-veg.netlify.app/)
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Built With
@@ -99,14 +95,11 @@ This is an example of how to list things you need to use the software and how to
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- USAGE EXAMPLES -->
 ## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
+Enter the name of a main ingredient in the search bar, you will get a at max 30 recipes with that ingredients.  
+Click on a recipe to get full information about the recipe  
+Click on the heart icon to add or remove a recipe from the favorites  
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
