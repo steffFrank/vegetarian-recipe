@@ -16,7 +16,7 @@ export const SearchForm = () => {
             <StyledButtonSearch disabled={!inputData} onClick={onSubmit} type="submit">
                 <StyledButtonText>search</StyledButtonText>
                 <StyledButtonIcon icon={faSearch} />
-                </StyledButtonSearch>
+            </StyledButtonSearch>
         </StyledForm>
     )
 }

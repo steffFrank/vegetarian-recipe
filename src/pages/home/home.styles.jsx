@@ -32,4 +32,5 @@ export const TextStyle = styled.p`
 `;
 export const StyledLink = styled(Link)`
     ${ButtonBase}
+    align-self: center;
 `;
