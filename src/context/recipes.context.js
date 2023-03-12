@@ -1,4 +1,4 @@
-import { createContext, useState, useReducer } from "react";
+import { createContext, useReducer } from "react";
 import axios from "axios";
 
 const baseUrl = process.env.REACT_APP_BASEURL;
@@ -9,7 +9,7 @@ const resultsNumber = 30;
 const getFavorites = () => {
     return JSON.parse(localStorage.getItem("favorites")) || [];
 }
-const favoriteRecipes = getFavorites();
+
 export const RecipesContext = createContext({
     inputData: "", 
     url: "",
@@ -70,6 +70,7 @@ const recipesReducer = (state, action) => {
               }
         case RECIPES_ACTION_TYPES.SET_RECIPES_FROM_INPUT:
             if (payload.data) {
+                const favoriteRecipes = getFavorites();
                 const newData = payload.data.map(recipe => {
                     const isFavoriteRecipe = favoriteRecipes.find(favoriteRecipe => recipe.id === favoriteRecipe.id);
                     if (isFavoriteRecipe) {

@@ -21,7 +21,7 @@ export const ButtonBase = css`
 export const StyledEmptyMessage = styled.div`
     margin-top: 10vh;
     text-align: center;
-    text-transform: capitalize;
     font-size: 2rem;
+    font-family: "ROBOTO", serif;
     color: var(--green-clr-light);
 `

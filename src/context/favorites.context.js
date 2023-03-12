@@ -48,7 +48,7 @@ const favoriteReducer = (state, action) => {
                 favoriteRecipes: newFavorites
             }
         default:
-            throw new Error(`Unhandle type ${type} in favoriteReducer`);
+            throw new Error(`Unhandled type ${type} in favoriteReducer`);
     }
 }
 
